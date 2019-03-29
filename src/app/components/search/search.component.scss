@@ -1,0 +1,38 @@
+.debounce-title {
+  font-weight: bold;
+  font-size: 30px;
+  color: chocolate;
+}
+
+.debounce-search {
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.search__label {
+  font-weight: bold;
+  font-size: 20px;
+  color: brown;
+}
+
+.search__value {
+  font-weight: bold;
+  font-size: 15px;
+  font-style: italic;
+  color: brown;
+}
+
+.debounce-results {
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.results__label {
+  font-size: 20px;
+  color: blue;
+}
+
+.results__value {
+  font-size: 20px;
+  color: blue;
+}

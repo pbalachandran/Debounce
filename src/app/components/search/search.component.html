@@ -1,0 +1,13 @@
+<p class="debounce-title">Let's debounce!</p>
+<div>
+  <div class="debounce-search">
+    <label class="search__label">Enter Search Term: </label>
+    <!--<input class="search__value" (keyup)="doSearchDirect($event)">-->
+    <!--<input class="search__value" [(ngModel)]="searchString" (ngModelChange)="doSearch()">-->
+    <input class="search__value" [(ngModel)]="searchString" (keyup)="doSearch()">
+  </div>
+  <div class="debounce-results">
+    <label class="results__label">Search Results: </label>
+    <span class="results__value">{{results}}</span>
+  </div>
+</div>
