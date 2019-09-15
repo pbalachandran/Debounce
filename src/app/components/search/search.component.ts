@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable, of, Subject} from "rxjs";
-import {debounceTime, distinctUntilChanged} from "rxjs/operators";
+import {debounceTime, distinctUntilChanged, switchMap} from "rxjs/operators";
 
 @Component({
   selector: 'app-search',
@@ -12,15 +12,17 @@ export class SearchComponent implements OnInit {
   searchString: string;
   searchDebouncer = new Subject<string>();
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     this.searchDebouncer.pipe(
       debounceTime(400),
-      distinctUntilChanged()).subscribe((term) => {
-        this.echoSearchTerm(term).subscribe((resp) => {
-          this.results = resp;
-        });
+      distinctUntilChanged(),
+      switchMap((term) => {
+        return this.echoSearchTerm(term);
+      })).subscribe((resp) => {
+            this.results = resp;
     });
   }
 
